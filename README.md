@@ -1,8 +1,6 @@
 # parcel-babel-react-starter
 
-## Fork By [react-parcel-example](https://github.com/jaredpalmer/react-parcel-example)
-
-A minimum viable React app with [Parcel Bundler](https://parceljs.org)
+A minimum viable React app with [Parcel Bundler](https://parceljs.org), Fork By [react-parcel-example](https://github.com/jaredpalmer/react-parcel-example)
 
 **What's inside?**
 
