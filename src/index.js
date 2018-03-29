@@ -1,42 +1,33 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { observable, extendObservable, autorun, computed } from 'mobx'
-import logo from './logo.svg';
-import './index.css';
+import("./styles/main.less");
+import React from "react";
+import {render} from "react-dom";
+import {BrowserRouter as Router} from "react-router-dom";
+import {Provider} from "mobx-react";
+import {AppContainer} from "react-hot-loader";
+import {rehydrate, hotRehydrate} from "rfx-core";
+import {isProduction} from "./utils/constants";
+import App from "./components/App";
+import stores from "./stores/stores";
 
-class OrderLine {
-  @observable price;
-  @observable amount;
+import './styles/main.less'
 
-  constructor() {
-    this.price = 0;
-    this.amount = 1;
-  }
+const store = rehydrate();
 
-  @computed get total() {
-    return this.price * this.amount;
-  }
-}
+const renderApp = Component => {
+  render(
+    <AppContainer>
+      <Router>
+        <Provider store={isProduction ? store : hotRehydrate()}>
+          <App/>
+        </Provider>
+      </Router>
+    </AppContainer>,
+    document.getElementById("root")
+  );
+};
 
-const ol = new OrderLine();
+renderApp(App);
 
-autorun(()=>{
-  console.log(ol.price, ol.amount, ol.amount)
-})
-
-ol.price = 3
-
-
-const App = () => (
-  <div className="App">
-    <img className="App-Logo" src={logo} alt="React Logo" />
-    <h1 className="App-Title">Hello Parcel React</h1>
-  </div>
-);
-
-ReactDOM.render(<App />, document.getElementById('root'));
-
-// Hot Module Replacement
 if (module.hot) {
-  module.hot.accept();
+  module.hot.accept(() => renderApp(App));
 }

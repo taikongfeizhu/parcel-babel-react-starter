@@ -6,24 +6,19 @@
     "build": "cross-env NODE_ENV=production parcel build ./src/index.html --no-minify --public-url /"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "faker": "^4.1.0",
+    "lazy-route": "^1.0.7",
+    "less": "^3.0.1",
     "mobx": "^4.1.0",
     "mobx-react": "^5.0.0",
+    "mobx-react-devtools": "^4.2.6",
+    "moment": "^2.15.1",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
-  },
-  "postcss": {
-    "modules": false,
-    "plugins": {
-      "autoprefixer": {
-        "browsers": [
-          ">1%",
-          "last 4 versions",
-          "Firefox ESR",
-          "not ie < 9"
-        ],
-        "flexbox": "no-2009"
-      }
-    }
+    "react-dom": "^16.2.0",
+    "react-hot-loader": "^4.0.0",
+    "react-router-dom": "^4.2.2",
+    "rfx-core": "^1.5.3"
   },
   "devDependencies": {
     "autoprefixer": "^7.2.1",
@@ -42,6 +37,7 @@
     "babel-preset-stage-3": "^6.24.1",
     "babel-runtime": "^6.20.0",
     "cross-env": "^5.1.1",
-    "parcel-bundler": "^1.6.2"
+    "parcel-bundler": "^1.6.2",
+    "postcss-modules": "^1.1.0"
   }
 }
