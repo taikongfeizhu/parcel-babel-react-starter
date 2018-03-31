@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Route, Link, withRouter } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import { inject, observer } from 'mobx-react';
 import LazyRoute from 'lazy-route';
 import TopBar from './Navigation/TopBar';
@@ -70,13 +70,13 @@ export default class App extends Component {
         />
         <footer>
           {testval}
-          <a href='https://twitter.com/mhaagens' target='_blank'>
+          <a href='https://twitter.com/mhaagens' target='_blank' rel='noopener noreferrer'>
             @mhaagens
           </a>
           {' '}
           | github:
           {' '}
-          <a href='https://github.com/mhaagens' target='_blank'>
+          <a href='https://github.com/mhaagens' target='_blank' rel='noopener noreferrer'>
             mhaagens
           </a>
         </footer>
