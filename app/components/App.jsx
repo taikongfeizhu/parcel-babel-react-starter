@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Route, Link, withRouter, Switch } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Route, Link, withRouter } from 'react-router-dom';
 import { inject, observer } from 'mobx-react';
 import LazyRoute from 'lazy-route';
 import TopBar from './Navigation/TopBar';
@@ -8,6 +9,11 @@ import TopBar from './Navigation/TopBar';
 @inject('store')
 @observer
 export default class App extends Component {
+  static propTypes = {
+    store: PropTypes.object.isRequired,
+    appState: PropTypes.object.isRequired,
+  }
+
   constructor(props) {
     super(props);
     this.store = this.props.store;
