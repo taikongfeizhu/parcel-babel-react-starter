@@ -1,11 +1,11 @@
-import React, {Component} from "react";
-import {Route, Link, withRouter} from "react-router-dom";
-import {inject, observer} from "mobx-react";
-import LazyRoute from "lazy-route";
-import TopBar from "./Navigation/TopBar";
+import React, { Component } from 'react';
+import { Route, Link, withRouter, Switch } from 'react-router-dom';
+import { inject, observer } from 'mobx-react';
+import LazyRoute from 'lazy-route';
+import TopBar from './Navigation/TopBar';
 
 @withRouter
-@inject("store")
+@inject('store')
 @observer
 export default class App extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-   this.authenticate();
+    this.authenticate();
   }
 
   authenticate(e) {
@@ -28,49 +28,49 @@ export default class App extends Component {
       authenticating,
       timeToRefresh,
       refreshToken,
-      testval
+      testval,
     } = this.store.appState;
     return (
-      <div className="wrapper">
-        {/*<DevTools />*/}
-        <TopBar/>
+      <div className='wrapper'>
+        {/* <DevTools /> */}
+        <TopBar />
         <Route
           exact
-          path="/"
+          path='/'
           render={props => (
-            <LazyRoute {...props} component={import("./Home")}/>
+            <LazyRoute {...props} component={import('./Home')} />
           )}
         />
         <Route
           exact
-          path="/posts"
+          path='/posts'
           render={props => (
-            <LazyRoute {...props} component={import("./SubPage")}/>
+            <LazyRoute {...props} component={import('./SubPage')} />
           )}
         />
         <Route
           exact
-          path="/posts/:id"
+          path='/posts/:id'
           render={props => (
-            <LazyRoute {...props} component={import("./SubItem")}/>
+            <LazyRoute {...props} component={import('./SubItem')} />
           )}
         />
         <Route
           exact
-          path="/login"
+          path='/login'
           render={props => (
-            <LazyRoute {...props} component={import("./Login")}/>
+            <LazyRoute {...props} component={import('./Login')} />
           )}
         />
         <footer>
           {testval}
-          <a href="https://twitter.com/mhaagens" target="_blank">
+          <a href='https://twitter.com/mhaagens' target='_blank'>
             @mhaagens
           </a>
-          {" "}
+          {' '}
           | github:
-          {" "}
-          <a href="https://github.com/mhaagens" target="_blank">
+          {' '}
+          <a href='https://github.com/mhaagens' target='_blank'>
             mhaagens
           </a>
         </footer>
