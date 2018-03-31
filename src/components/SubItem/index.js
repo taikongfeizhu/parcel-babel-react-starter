@@ -1,9 +1,9 @@
 import React, {Component} from "react";
 import {inject, observer} from "mobx-react";
 import {Link} from "react-router-dom";
-
-import DataWrapper from "./DataWrapper";
-import Protected from "./Protected";
+import DataWrapper from "../Wrapper/DataWrapper";
+import Protected from "../Wrapper/Protected";
+import './post.less'
 
 @DataWrapper
 @Protected
@@ -13,7 +13,7 @@ export default class Subitem extends Component {
     super(props);
     this.store = this.props.store;
   }
-  
+
   render() {
     const {item} = this.store.appState;
     return (
@@ -24,7 +24,7 @@ export default class Subitem extends Component {
           <h1>{item.title}</h1>
           <p>{item.body}</p>
         </article>}
-      
+
       </div>
     );
   }

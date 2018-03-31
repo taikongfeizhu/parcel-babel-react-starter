@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import {inject, observer} from "mobx-react";
 
+import './home.less';
+
 @inject("store")
 @observer
 export default class Home extends Component {
@@ -8,7 +10,7 @@ export default class Home extends Component {
     super(props);
     this.store = this.props.store;
   }
-  
+
   render() {
     const store = this.store;
     return (

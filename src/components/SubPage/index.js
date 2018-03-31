@@ -1,9 +1,9 @@
 import React, {Component} from "react";
 import {inject, observer} from "mobx-react";
 import {Match, Link} from "react-router-dom";
-
-import Protected from "./Protected";
-import DataWrapper from "./DataWrapper";
+import Protected from "../Wrapper/Protected";
+import DataWrapper from "../Wrapper/DataWrapper";
+import './posts.less';
 
 @Protected
 @DataWrapper
@@ -14,11 +14,11 @@ export default class SubPage extends Component {
     this.store = this.props.store;
     this.getItem = this.getItem.bind(this);
   }
-  
+
   getItem() {
     console.log(this.store.appState.getItem)
   }
-  
+
   render() {
     const {items} = this.store.appState;
     return (

@@ -1,9 +1,9 @@
 import React, {Component} from "react";
 import {inject, observer} from "mobx-react";
 import {Link, withRouter} from "react-router-dom";
-
 import TopNav from "./TopNav";
-import Button from "./ui/Button";
+import Button from "./Button";
+import './TopBar.less'
 
 @withRouter
 @inject("store")
@@ -14,12 +14,12 @@ export default class TopBar extends Component {
     this.store = this.props.store.appState;
     this.authenticate = this.authenticate.bind(this);
   }
-  
+
   authenticate(e) {
     if (e) e.preventDefault();
     this.store.authenticate();
   }
-  
+
   render() {
     const {authenticated} = this.store;
     return (
